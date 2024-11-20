@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Experience</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("navbar.html")
+                .then((response) => response.text())
+                .then((data) => {
+                    document.body.insertAdjacentHTML("afterbegin", data);
+
+                    // Highlight active link
+                    const links = document.querySelectorAll("nav a");
+                    const currentPage = window.location.pathname.split("/").pop();
+                    links.forEach((link) => {
+                        link.classList.toggle(
+                            "active",
+                            link.getAttribute("href") === currentPage
+                        );
+                    });
+                })
+                .catch((error) => console.error("Error loading navbar:", error));
+        });
+    </script>
+    <style>
+        /* Global styles */
+        body {
+            background-color: #000000;
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            padding: 8rem 10%; /* Padding atas lebih besar untuk memberi jarak */
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #b74b4b;
+        }
+
+        /* Experience container */
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .experience {
+            background: #1e1e1e;
+            border-radius: 1rem;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .experience:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+        }
+
+        .experience-icon {
+            font-size: 2rem;
+            color: #b74b4b;
+            margin-bottom: 1rem;
+        }
+
+        .experience h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience p {
+            font-size: 1rem;
+            color: #ccc;
+        }
+
+        /* Modal for Image */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%; /* Adjust modal width */
+            max-width: 600px; /* Maximum width for modal */
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+        }
+
+        /* Image size in experience section */
+        .experience img {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            background-color: #ccc;
+            border-radius: 10px;
+            height: 20px;
+            width: 100%;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress {
+            background-color: #b74b4b;
+            height: 100%;
+            color: white;
+            text-align: center;
+            line-height: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <section>
+        <h1>Certificates</h1>
+        <div class="experience-container">
+            <!-- Sertifikat pertama -->
+            <div class="experience" onclick="openModal('dicoding sertif.jpg')">
+                <img src="dicoding sertif.jpg" alt="Dicoding Certificate" class="experience-image">
+                <h2>Dasar Pemrograman Python</h2>
+                <p>Issued by Dicoding Ind, 2023</p>
+            </div>
+
+            <!-- Sertifikat kedua -->
+            <div class="experience" onclick="openModal('FAJAR RAMADHAN MULYANA SIDIK_E-Certificate Frontend Fundamentals MySkill x SGU-1.png')">
+                <img src="FAJAR RAMADHAN MULYANA SIDIK_E-Certificate Frontend Fundamentals MySkill x SGU-1.png" alt="Frontend Fundamentals Certificate" class="experience-image">
+                <h2>Frontend Fundamentals</h2>
+                <p>Issued by MySkill, 2024</p>
+            </div>
+
+            <!-- Sertifikat ketiga -->
+            <div class="experience" onclick="openModal('Gambar WhatsApp 2024-06-07 pukul 07.58.15_224fd66d.jpg')">
+                <img src="Gambar WhatsApp 2024-06-07 pukul 07.58.15_224fd66d.jpg" alt="React Certificate" class="experience-image">
+                <h2>SQL Basics</h2>
+                <p>Issued by Dicoding Ind, 2023</p>
+            </div>
+
+            <!-- Sertifikat keempat -->
+            <div class="experience" onclick="openModal('Mos sertif.jpg')">
+                <img src="Mos sertif.jpg" alt="MOS Certification" class="experience-image">
+                <h2>Microsoft Office Specialist</h2>
+                <p>Issued by Microsoft, 2023</p>
+            </div>
+
+            <!-- Sertifikat kelima -->
+            <div class="experience" onclick="openModal('Gambar WhatsApp 2024-06-07 pukul 07.58.15_3cfc3486.jpg')">
+                <img src="Gambar WhatsApp 2024-06-07 pukul 07.58.15_3cfc3486.jpg" alt="UI/UX Certificate" class="experience-image">
+                <h2>Dasar Data Science</h2>
+                <p>Issued by Dicoding Ind, 2023</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for Image -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <script>
+        // Function to open modal with the image
+        function openModal(imageSource) {
+            document.getElementById('myModal').style.display = "block";
+            document.getElementById('modalImage').src = imageSource;
+        }
+
+        // Function to close modal
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+
+        // Close modal if clicked outside the image
+        window.onclick = function(event) {
+            if (event.target == document.getElementById('myModal')) {
+                closeModal();
+            }
+        }
+    </script>
+
+</body>
+</html>

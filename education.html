@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>My Education</title>
+    <style>
+      body {
+        background-color: #000000;
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      section {
+        padding: 8rem 10%; /* Tambahkan padding atas lebih besar */
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 3rem;
+        color: #b74b4b;
+      }
+
+      .education-container {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .education-card {
+        background-color: #161616;
+        border: 2px solid #b74b4b;
+        border-radius: 1.5rem;
+        width: 28rem;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: 0 0 15px rgba(183, 75, 75, 0.6);
+        transition: transform 0.3s ease;
+      }
+
+      .education-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+      }
+
+      .education-card .icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #b74b4b;
+      }
+
+      .education-card h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .education-card p {
+        font-size: 1.4rem;
+        line-height: 1.6;
+      }
+    </style>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        fetch("navbar.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.body.insertAdjacentHTML("afterbegin", data);
+
+            // Highlight active link
+            const links = document.querySelectorAll("nav a");
+            const currentPage = window.location.pathname.split("/").pop();
+            links.forEach((link) => {
+              link.classList.toggle(
+                "active",
+                link.getAttribute("href") === currentPage
+              );
+            });
+          })
+          .catch((error) => console.error("Error loading navbar:", error));
+      });
+    </script>
+  </head>
+  <body>
+    <section>
+      <h1>My Education</h1>
+      <div class="education-container">
+        <div class="education-card">
+          <div class="icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <h2>Politeknik Negeri Subang</h2>
+          <p>Jurusan Teknologi Informasi Dan Komputer</p>
+          <p>Prodi D3 Sistem Informasi</p>
+          <p>2023 - Sekarang</p>
+        </div>
+        <div class="education-card">
+          <div class="icon">
+            <i class="fa-solid fa-school"></i>
+          </div>
+          <h2>MA Al-Falah Nagreg</h2>
+          <p>Jurusan Keagamaan</p>
+          <p>2020 - 2023</p>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

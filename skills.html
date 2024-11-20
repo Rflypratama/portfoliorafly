@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Skills</title>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+                document.body.insertAdjacentHTML('afterbegin', data);
+
+                // Highlight active link
+                const links = document.querySelectorAll('nav a');
+                const currentPage = window.location.pathname.split("/").pop();
+                links.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === currentPage);
+                });
+            })
+            .catch(error => console.error('Error loading navbar:', error));
+    });
+</script>
+
+</head>
+
+<body>
+    
+
+    <section>
+        <div class="skills-container">
+            <div class="skill">
+                <i class="fa-brands fa-html5 skill-icon"></i>
+                <h2>HTML</h2>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%;">75%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <i class="fa-brands fa-css3-alt skill-icon"></i>
+                <h2>CSS</h2>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 70%;">70%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <i class="fa-brands fa-js skill-icon"></i>
+                <h2>JavaScript</h2>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 55%;">55%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <i class="fa-brands fa-figma skill-icon"></i>
+                <h2>Figma</h2>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 80%;">80%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <i class="fa-brands fa-php skill-icon"></i>
+                <h2>PHP</h2>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 60%;">60%</div>
+                </div>
+            </div>
+            <div class="skill">
+                <i class="fa-solid fa-file-excel skill-icon"></i>
+                <h2>Excel</h2>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 85%;">85%</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+</body>
+
+</html>
